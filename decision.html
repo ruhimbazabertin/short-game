@@ -1,0 +1,58 @@
+  <html>
+<head>
+    <title>Before Mid </title>
+    <style>
+        .container{
+            width: 400px;
+            height: 300px;
+            background-color: blanchedalmond;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+	<div class="header">
+		<span><h2>Gaming!</h2></span>
+        </div>
+        <div class="container">
+        <form>
+        <div><label for="input"><strong>Number</strong></label> <input type="text" id="number" placeholder="Enter any Number" required="true"/></div><br/>
+        <div class="button"><button type="button" onclick="check()">Check</button></div>
+        </form>
+        </div>
+        </center>
+        <script>
+           function generateRandomNumber(max, min){
+               var generate = Math.floor((Math.random() * (max-min+1))+min);
+               return generate;
+            }
+            
+            var generateValue = null;
+            var count=null;
+
+            function start(){
+                generateValue = generateRandomNumber(2,5);
+                count=0;
+            }
+
+            start();
+            
+            function check(){
+                var userValue = document.getElementById('number').value;
+                if(generateValue == userValue){
+                    alert("You won");
+                }else{
+                  count++;
+                  if(count==3){
+                    alert("You failed");
+                    start();
+                  } else {
+                  alert("No");
+                  }
+                }
+            }
+     </script>
+     </body>
+     </html>
